@@ -898,6 +898,7 @@ style: TextStyle(
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold, fontSize: 12),
                                   ),
+                                    if (selectedIndexes.isEmpty)
                                   IconButton(
                                     icon: Icon(Icons.close, size: 16),
                                     onPressed: () {

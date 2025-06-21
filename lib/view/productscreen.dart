@@ -20,7 +20,7 @@ class ProductGridScreen extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (_) =>ShoppingBagScreen()),
       );
-          }, icon: Icon(Icons.shop))
+          }, icon: Icon(Icons.shopping_bag))
         ],
       ),
       body: Consumer<DummyDb>(
