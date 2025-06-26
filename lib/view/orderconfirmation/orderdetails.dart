@@ -167,7 +167,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 )),
-                            Text(Dummydb().date[widget.index!],
+                            Text("hello",
                                 style: GoogleFonts.roboto(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
@@ -197,7 +197,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                       SizedBox(
                         width: 10,
                       ),
-                      Text(Dummydb().returndate[widget.index!],
+                      Text("hello",
                           style: GoogleFonts.roboto(
                             fontSize: 12,
                             fontWeight: FontWeight.normal,
