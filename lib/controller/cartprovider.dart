@@ -11,6 +11,7 @@ class CartProvider with ChangeNotifier {
   final String baseUrl = 'https://myntacloneappbackend-1.onrender.com';
   List<dynamic> _cartItems = [];
   String? couponMessage;
+bool productiloading=false;
  
   
 
@@ -20,6 +21,8 @@ class CartProvider with ChangeNotifier {
 
   // Fetch cart items by userId
  Future<void> fetchCartItems(String userId) async {
+   productiloading=true;
+    notifyListeners();
   final url = Uri.parse('$baseUrl/cart/$userId');
   try {
     print("Fetching cart items for user: $userId at URL: $url");
@@ -39,6 +42,8 @@ class CartProvider with ChangeNotifier {
     print("Fetch cart error: $e, StackTrace: $stackTrace");
     print("URL attempted: $url");
   }
+  productiloading=false;
+    
   notifyListeners();
 }
 

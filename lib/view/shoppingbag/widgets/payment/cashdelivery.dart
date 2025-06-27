@@ -171,7 +171,7 @@ class _PaymentOptionCardState extends State<PaymentOptionCard> {
                             items: widget.selectedProducts,
                             shippingAddress: widget.shippingAddress,
                             cartTotal: widget.totalAmount,
-                            paymentMethod: 'Cash on Delivery',
+                            paymentMethod: 'COD',
                             token: widget.bearerToken,
                           );
 
@@ -183,12 +183,12 @@ class _PaymentOptionCardState extends State<PaymentOptionCard> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => OrderConfirmationScreen(
-                                  totalMRP: widget.totalMRP,
-                                  discountMRP: widget.discountMRP,
-                                  totalAmount: widget.totalAmount,
-                                  itemCount: widget.itemCount,
-                                  selectedItemImages: widget.selectedItemImages,
-                                  selectedProducts: widget.selectedProducts,
+                                  // totalMRP: widget.totalMRP,
+                                  // discountMRP: widget.discountMRP,
+                                  // totalAmount: widget.totalAmount,
+                                  // itemCount: widget.itemCount,
+                                  // selectedItemImages: widget.selectedItemImages,
+                                  // selectedProducts: widget.selectedProducts,
                                 ),
                               ),
                             );

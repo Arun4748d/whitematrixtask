@@ -122,7 +122,7 @@ class _OnlinePaymentOptionState extends State<OnlinePaymentOption> {
                             items: widget.selectedProducts,
                             shippingAddress: widget.shippingAddress,
                             cartTotal: widget.totalAmount,
-                            paymentMethod: 'Cash on Delivery',
+                            paymentMethod: "UPI",
                             token: widget.bearerToken,
                           );
 
@@ -134,12 +134,12 @@ class _OnlinePaymentOptionState extends State<OnlinePaymentOption> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => OrderConfirmationScreen(
-                                  totalMRP: widget.totalMRP,
-                                  discountMRP: widget.discountMRP,
-                                  totalAmount: widget.totalAmount,
-                                  itemCount: widget.itemCount,
-                                  selectedItemImages: widget.selectedItemImages,
-                                  selectedProducts: widget.selectedProducts,
+                                  // totalMRP: widget.totalMRP,
+                                  // discountMRP: widget.discountMRP,
+                                  // totalAmount: widget.totalAmount,
+                                  // itemCount: widget.itemCount,
+                                  // selectedItemImages: widget.selectedItemImages,
+                                  // selectedProducts: widget.selectedProducts,
                                 ),
                               ),
                             );

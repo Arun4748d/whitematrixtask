@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 
 import 'package:whitematrixtask/controller/cartprovider.dart';
+import 'package:whitematrixtask/controller/ordercontrollers.dart';
 import 'package:whitematrixtask/dummydb.dart';
 
 import 'package:whitematrixtask/view/orderconfirmation/orderconfirmationscreen.dart';
@@ -32,6 +33,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
          ChangeNotifierProvider(create: (context) => CartProvider()),
          ChangeNotifierProvider(create: (context) => offersdb()),
+          ChangeNotifierProvider(create: (context) =>OrderProvider(),),
+          
      
       ],
       child: MaterialApp(
