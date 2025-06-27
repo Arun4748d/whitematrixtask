@@ -47,7 +47,9 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
             color: Colors.black,
           ),
         ),
+        backgroundColor: Colors.white,
       ),
+      backgroundColor: Colors.white,
       body: Consumer<OrderProvider>(
         builder: (context, orderProvider, child) {
           if (orderProvider.isLoading) {

@@ -328,7 +328,19 @@ class _OrdersState extends State<Orders> {
   }
 
   Widget _buildOrdersList(OrderProvider orderProvider) {
-    var orders = orderProvider.orders;
+   var orders = List<Map<String, dynamic>>.from(orderProvider.orders);
+orders.sort((a, b) {
+  try {
+    final aDate = DateTime.parse(a['placedAt']);
+    final bDate = DateTime.parse(b['placedAt']);
+    return bDate.compareTo(aDate); // Descending order
+  } catch (e) {
+    print("Error parsing placedAt: $e");
+    return 0;
+  }
+});
+
+
 
     if (selectedStatus != null && selectedStatus != "All") {
       orders = orders.where((order) => order['status'] == selectedStatus).toList();
@@ -555,19 +567,21 @@ class _OrdersState extends State<Orders> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                StarRating(
-                                  size: 25.0,
-                                  rating: item['rating']?.toDouble() ?? 3.0,
-                                  color: Colors.red,
-                                  borderColor: Colors.grey,
-                                  allowHalfRating: true,
-                                  starCount: 5,
-                                  onRatingChanged: (rating) => setState(() {}),
-                                ),
-                              ],
-                            ),
+                           Row(
+                            children: [
+                              StarRating(
+                                size: 25.0,
+                                rating: (item['reviews']?.isNotEmpty ?? false)
+                                    ? item['reviews'][0]['rating']?.toDouble() ?? 3.0
+                                    : 3.0,
+                                color: Colors.red,
+                                borderColor: Colors.grey,
+                                allowHalfRating: true,
+                                starCount: 5,
+                                onRatingChanged: (rating) => setState(() {}),
+                              ),
+                            ],
+                          ),
                             const SizedBox(height: 5),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

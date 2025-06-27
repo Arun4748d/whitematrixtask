@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:whitematrixtask/controller/cartprovider.dart';
 import 'package:whitematrixtask/dummydb.dart';
+import 'package:whitematrixtask/view/orderconfirmation/orders.dart';
 import 'package:whitematrixtask/view/shoppingbag/addresspage.dart';
 import 'package:whitematrixtask/view/shoppingbag/couponscreen.dart';
 
@@ -428,14 +429,27 @@ void initState() {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite_outline,
-              color: Colors.black54,
-              size: 25,
+        InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Orders(),));
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 8,vertical: 4),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black54),
+              borderRadius: BorderRadius.circular(13)
             ),
-          )
+            child: Text("Orders",
+            style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              fontSize: 14
+            ),),
+            
+          ),
+        ),
+        SizedBox(width: 15,)
+
         ],
         backgroundColor: Colors.white,
         elevation: 0,
@@ -1565,7 +1579,7 @@ void initState() {
                       elevation: 0,
                     ),
                     child: const Text(
-                      'ORDER',
+                      'PLACE ORDER',
                       style: TextStyle(
                         fontSize: 13.5,
                         fontWeight: FontWeight.w700,

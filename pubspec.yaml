@@ -71,6 +71,7 @@ flutter:
     - assets/images/
     - assets/images/img1.jpg
     - assets/order_confirmation.json
+    - assets/delivery1.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

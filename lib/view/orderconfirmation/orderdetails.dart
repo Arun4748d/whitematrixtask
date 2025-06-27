@@ -257,15 +257,17 @@ class _OrderdetailsState extends State<Orderdetails> {
                     children: [
                       Row(
                         children: [
-                          StarRating(
-                            size: 25.0,
-                            rating: item['rating']?.toDouble() ?? 3.0,
-                            color: Colors.red,
-                            borderColor: Colors.grey,
-                            allowHalfRating: true,
-                            starCount: 5,
-                            onRatingChanged: (rating) => setState(() {}),
-                          ),
+                       StarRating(
+                                size: 25.0,
+                                rating: (item['reviews']?.isNotEmpty ?? false)
+                                    ? item['reviews'][0]['rating']?.toDouble() ?? 3.0
+                                    : 3.0,
+                                color: Colors.red,
+                                borderColor: Colors.grey,
+                                allowHalfRating: true,
+                                starCount: 5,
+                                onRatingChanged: (rating) => setState(() {}),
+                              ),
                         ],
                       ),
                       const SizedBox(height: 5),
@@ -459,6 +461,11 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                 ),
                                               ],
                                             ),
+                                             Container(
+                                              height: 2,
+                                              width: double.infinity,
+                                              color: Colors.grey[300],
+                                            ),
                                             const SizedBox(height: 10),
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -510,34 +517,34 @@ class _OrderdetailsState extends State<Orderdetails> {
                                               ],
                                             ),
                                             const SizedBox(height: 10),
-                                            Container(
-                                              height: 2,
-                                              width: double.infinity,
-                                              color: Colors.grey[300],
-                                            ),
-                                            const SizedBox(height: 10),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "Coupon discount",
-                                                  style: GoogleFonts.roboto(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.grey[600],
-                                                  ),
-                                                ),
-                                                Text(
-                                                  order['couponCode'] != null ? "-₹0" : "-₹0",
-                                                  style: GoogleFonts.roboto(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 10),
+                                            // Container(
+                                            //   height: 2,
+                                            //   width: double.infinity,
+                                            //   color: Colors.grey[300],
+                                            // ),
+                                            // const SizedBox(height: 10),
+                                            // Row(
+                                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            //   children: [
+                                            //     Text(
+                                            //       "Coupon discount",
+                                            //       style: GoogleFonts.roboto(
+                                            //         fontSize: 16,
+                                            //         fontWeight: FontWeight.bold,
+                                            //         color: Colors.grey[600],
+                                            //       ),
+                                            //     ),
+                                            //     Text(
+                                            //       order['couponCode'] != null ? "-₹0" : "-₹0",
+                                            //       style: GoogleFonts.roboto(
+                                            //         fontSize: 16,
+                                            //         fontWeight: FontWeight.bold,
+                                            //         color: Colors.black,
+                                            //       ),
+                                            //     ),
+                                            //   ],
+                                            // ),
+                                            // const SizedBox(height: 10),
                                             Container(
                                               height: 2,
                                               width: double.infinity,
@@ -580,7 +587,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   ),
                                                   const SizedBox(width: 10),
                                                   Text(
-                                                    order['paymentStatus'] == "COD" ? "Pay on delivery" : "Online Payment",
+                                                    order['paymentMethod'] == "COD" ? "cash on delivery" : "Online Payment",
                                                     style: GoogleFonts.roboto(
                                                       fontSize: 14,
                                                       fontWeight: FontWeight.bold,
@@ -626,7 +633,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                               ),
                               const SizedBox(width: 10),
                               Text(
-                                order['paymentStatus'] == "COD" ? "Pay on delivery" : "Online Payment",
+                                order['paymentMethod'] == "COD" ? "Cash on delivery" : "Online Payment",
                                 style: GoogleFonts.roboto(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,

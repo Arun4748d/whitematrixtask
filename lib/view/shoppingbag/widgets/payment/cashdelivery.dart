@@ -179,7 +179,7 @@ class _PaymentOptionCardState extends State<PaymentOptionCard> {
 
                           // Navigate to OrderConfirmationScreen only if successful
                           if (success) {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => OrderConfirmationScreen(
